@@ -2,7 +2,7 @@
 """
 Módulo de análise e visualização de resultados do Simulador SMA.
 Autores: Emanuel Fernandes (105084), Andreia Fonseca (111298)
-Data: Dezembro 2024
+Data: Janeiro 2026
 """
 
 import numpy as np
@@ -19,9 +19,7 @@ try:
     from config import CORES, EMOJIS
 except ImportError:
     CORES = {'reset': '', 'vermelho': '', 'verde': '', 'azul': '', 'amarelo': '', 'negrito': ''}
-    EMOJIS = {'robo': '🤖', 'grafico': '📊', 'sucesso': '✅', 'erro': '❌', 'cerebro': '🧠',
-              'alerta': '⚠️', 'salvar': '💾', 'estatisticas': '📈', 'agente': '👤'}
-
+    
 
 class AnalisadorResultados:
     """Classe para análise e visualização de resultados do treino."""
@@ -357,7 +355,7 @@ class AnalisadorResultados:
     </style>
 </head>
 <body>
-    <h1>📊 Relatório do Simulador SMA</h1>
+    <h1> Relatório do Simulador SMA</h1>
     <p><strong>Data:</strong> ''' + timestamp + '''</p>
     <p><strong>Total de experiências:</strong> ''' + str(len(dfs)) + '''</p>''')
         
@@ -393,9 +391,9 @@ class AnalisadorResultados:
             # Começar card da experiência
             html_parts.append(f'''
     <div class="card">
-        <h2>🎯 Experiência: {exp_nome}</h2>
+        <h2> Experiência: {exp_nome}</h2>
         
-        <h3>📈 Métricas Principais</h3>
+        <h3> Métricas Principais</h3>
         <div>''')
             
             for key, value in metrics.items():
@@ -408,7 +406,7 @@ class AnalisadorResultados:
             html_parts.append('''
         </div>
         
-        <h3>📋 Estatísticas Detalhadas</h3>
+        <h3> Estatísticas Detalhadas</h3>
         <table>
             <tr>
                 <th>Métrica</th>
@@ -437,7 +435,7 @@ class AnalisadorResultados:
             html_parts.append('''
         </table>
         
-        <h3>📊 Informações do Dataset</h3>
+        <h3> Informações do Dataset</h3>
         <table>
             <tr>
                 <td>Total de registos</td>
@@ -649,7 +647,7 @@ def menu_analise_resultados():
     
     while True:
         print(f"\n{'='*70}")
-        print(f"📊 MENU DE ANÁLISE DE RESULTADOS")
+        print(f" MENU DE ANÁLISE DE RESULTADOS")
         print(f"{'='*70}")
         print("1. Analisar arquivo de resultados específico")
         print("2. Analisar todos os arquivos de resultados")
@@ -666,7 +664,7 @@ def menu_analise_resultados():
         elif escolha == '1':
             arquivos = glob.glob("resultados_*.csv") + glob.glob("aprendizagem_*.csv") + glob.glob("resultados/*.csv")
             if not arquivos:
-                print(f"⚠️  Nenhum arquivo de resultados encontrado.")
+                print(f"  Nenhum arquivo de resultados encontrado.")
                 print("   Execute primeiro um treino para gerar dados.")
                 continue
             
@@ -682,14 +680,14 @@ def menu_analise_resultados():
                     print("\nPressione Enter para continuar...")
                     input()
                 else:
-                    print(f"❌ Seleção inválida.")
+                    print(f" Seleção inválida.")
             except ValueError:
-                print(f"❌ Entrada inválida.")
+                print(f" Entrada inválida.")
         
         elif escolha == '2':
             arquivos = glob.glob("resultados_*.csv") + glob.glob("aprendizagem_*.csv") + glob.glob("resultados/*.csv")
             if not arquivos:
-                print(f"⚠️  Nenhum arquivo de resultados encontrado.")
+                print(f"  Nenhum arquivo de resultados encontrado.")
                 print("   Execute primeiro um treino para gerar dados.")
                 continue
             
@@ -705,7 +703,7 @@ def menu_analise_resultados():
         elif escolha == '3':
             arquivos = glob.glob("resultados_*.csv") + glob.glob("aprendizagem_*.csv") + glob.glob("resultados/*.csv")
             if not arquivos or len(arquivos) < 2:
-                print(f"⚠️  É necessário pelo menos 2 arquivos para comparação.")
+                print(f"  É necessário pelo menos 2 arquivos para comparação.")
                 print("   Execute primeiro treinos para gerar dados.")
                 continue
             
@@ -734,16 +732,16 @@ def menu_analise_resultados():
                         print("\nPressione Enter para continuar...")
                         input()
                     else:
-                        print(f"⚠️  Não foi possível carregar dados suficientes para comparação.")
+                        print(f"  Não foi possível carregar dados suficientes para comparação.")
                 else:
-                    print(f"❌ É necessário selecionar pelo menos 2 arquivos.")
+                    print(f" É necessário selecionar pelo menos 2 arquivos.")
             except Exception as e:
-                print(f"❌ Erro ao processar seleção: {e}")
+                print(f" Erro ao processar seleção: {e}")
         
         elif escolha == '4':
             arquivos = glob.glob("resultados_*.csv") + glob.glob("aprendizagem_*.csv") + glob.glob("resultados/*.csv")
             if not arquivos:
-                print(f"⚠️  Nenhum arquivo de resultados encontrado.")
+                print(f"  Nenhum arquivo de resultados encontrado.")
                 print("   Execute primeiro um treino para gerar dados.")
                 continue
             
@@ -760,12 +758,12 @@ def menu_analise_resultados():
                 print("\nPressione Enter para continuar...")
                 input()
             else:
-                print(f"⚠️  Não foi possível carregar dados para o relatório.")
+                print(f"  Não foi possível carregar dados para o relatório.")
         
         elif escolha == '5':
             arquivos = glob.glob("resultados_*.csv") + glob.glob("aprendizagem_*.csv") + glob.glob("resultados/*.csv")
             if not arquivos:
-                print(f"⚠️  Nenhum arquivo de resultados encontrado.")
+                print(f"  Nenhum arquivo de resultados encontrado.")
                 print("   Execute primeiro um treino para gerar dados.")
                 continue
             
@@ -783,7 +781,7 @@ def menu_analise_resultados():
                 print(f"      Tamanho: {tamanho:.1f} KB | Linhas: {linhas}")
         
         else:
-            print(f"❌ Opção inválida.")
+            print(f" Opção inválida.")
 
 
 if __name__ == "__main__":

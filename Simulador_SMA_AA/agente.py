@@ -3,7 +3,7 @@
 Módulo que define os agentes para o simulador SMA.
 Versão completa com suporte a treino de 10.000 episódios
 Autores: Emanuel Fernandes (105084), Andreia Fonseca (111298)
-Data: Dezembro 2024
+Data: Janeiro 2026
 """
 
 import os

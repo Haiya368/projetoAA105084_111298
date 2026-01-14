@@ -2,8 +2,8 @@
 """
 Módulo de visualização para o Simulador SMA.
 Autores: Emanuel Fernandes (105084), Andreia Fonseca (111298)
-Data: Dezembro 2024
-"""
+Data: Janeiro 2026
+""" 
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches

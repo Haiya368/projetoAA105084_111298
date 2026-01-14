@@ -14,13 +14,6 @@ CORES = {
     'negrito': '\033[1m'
 }
 
-EMOJIS = {
-    'robo': '🤖',
-    'grafico': '📊',
-    'sucesso': '✅',
-    'erro': '❌',
-    'cerebro': '🧠'
-}
 
 # Hiperparâmetros de Treino (Ajustados para 10x10)
 CONFIG_TREINO = {

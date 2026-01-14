@@ -3,7 +3,7 @@
 MAIN.PY - Sistema de Simulação SMA com Labirinto e Farol
 Versão completa com treino automático de 10.000 episódios
 Autores: Emanuel Fernandes (105084), Andreia Fonseca (111298)
-Data: Dezembro 2024
+Data: Janeiro 2026 
 """
 import sys
 import time
@@ -59,7 +59,7 @@ def treinar_agente_labirinto():
     }
     
     # TREINO
-    print(f"\n🧠 Iniciando treino de {EPISODIOS} episódios...")
+    print(f"\n Iniciando treino de {EPISODIOS} episódios...")
     print("   (Pressione Ctrl+C para interromper mais cedo)\n")
     
     try:
@@ -123,9 +123,9 @@ def treinar_agente_labirinto():
                       f"Epsilon: {agente.epsilon:.3f}")
     
     except KeyboardInterrupt:
-        print("\n⚠️  Treino interrompido pelo utilizador.")
+        print("\n  Treino interrompido pelo utilizador.")
     
-    print(f"\n✅ Treino concluído!")
+    print(f"\n Treino concluído!")
     print(f"   Total de episódios: {len(historico['episodio'])}")
     taxa_final = sum(historico['sucesso'])/len(historico['sucesso'])*100 if historico['sucesso'] else 0
     print(f"   Taxa de sucesso final: {taxa_final:.1f}%")
@@ -172,7 +172,7 @@ def treinar_agente_farol():
     }
     
     # TREINO
-    print(f"\n🧠 Iniciando treino de {EPISODIOS} episódios...")
+    print(f"\n Iniciando treino de {EPISODIOS} episódios...")
     print(f"   Obstáculos: {NUM_OBSTACULOS}")
     print("   (Pressione Ctrl+C para interromper mais cedo)\n")
     
@@ -237,9 +237,9 @@ def treinar_agente_farol():
                       f"Epsilon: {agente.epsilon:.3f}")
     
     except KeyboardInterrupt:
-        print("\n⚠️  Treino interrompido pelo utilizador.")
+        print("\n  Treino interrompido pelo utilizador.")
     
-    print(f"\n✅ Treino concluído!")
+    print(f"\n Treino concluído!")
     print(f"   Total de episódios: {len(historico['episodio'])}")
     taxa_final = sum(historico['sucesso'])/len(historico['sucesso'])*100 if historico['sucesso'] else 0
     print(f"   Taxa de sucesso final: {taxa_final:.1f}%")
@@ -254,7 +254,7 @@ def treinar_todos_agentes_automaticamente():
     print("\n" + "="*60)
     print("TREINO AUTOMÁTICO COMPLETO - 10.000 EPISÓDIOS")
     print("="*60)
-    print("⚠️  ATENÇÃO: Este processo pode demorar vários minutos")
+    print("  ATENÇÃO: Este processo pode demorar vários minutos")
     print("    Serão executados:")
     print("    1. Labirinto 10x10: 10.000 episódios")
     print("    2. Farol 8x8: 10.000 episódios")
@@ -312,7 +312,7 @@ def treinar_todos_agentes_automaticamente():
             'epsilon': []
         }
         
-        print(f"🧠 Iniciando treino de {EPISODIOS} episódios...")
+        print(f" Iniciando treino de {EPISODIOS} episódios...")
         print("   (Esta operação pode demorar alguns minutos)")
         
         # TREINO RÁPIDO (com progresso a cada 500 episódios)
@@ -387,7 +387,7 @@ def treinar_todos_agentes_automaticamente():
         taxa_sucesso_final = sum(historico['sucesso']) / len(historico['sucesso']) * 100
         recompensa_maxima = max(historico['recompensa'])
         
-        print(f"\n✅ Treino do Labirinto concluído!")
+        print(f"\n Treino do Labirinto concluído!")
         print(f"   Tempo total: {tempo_final/60:.1f} minutos")
         print(f"   Taxa de sucesso final: {taxa_sucesso_final:.1f}%")
         print(f"   Melhor recompensa: {recompensa_maxima:.1f}")
@@ -396,13 +396,13 @@ def treinar_todos_agentes_automaticamente():
         # Salvar agente automaticamente
         nome_arquivo = 'agentes_salvos/melhor_labirinto_10K.pkl'
         agente.salvar_agente(nome_arquivo)
-        print(f"   ✅ Agente salvo em: {nome_arquivo}")
+        print(f"    Agente salvo em: {nome_arquivo}")
         
         # Salvar histórico em CSV
         df = pd.DataFrame(historico)
         nome_csv = f'resultados/labirinto_10K_{int(time.time())}.csv'
         df.to_csv(nome_csv, index=False)
-        print(f"   📊 Dados salvos em: {nome_csv}")
+        print(f"    Dados salvos em: {nome_csv}")
         
         resultados['labirinto'] = {
             'historico': historico,
@@ -412,7 +412,7 @@ def treinar_todos_agentes_automaticamente():
         }
         
     except Exception as e:
-        print(f"❌ Erro no treino do Labirinto: {e}")
+        print(f" Erro no treino do Labirinto: {e}")
         import traceback
         traceback.print_exc()
     
@@ -454,7 +454,7 @@ def treinar_todos_agentes_automaticamente():
             'epsilon': []
         }
         
-        print(f"🧠 Iniciando treino de {EPISODIOS} episódios...")
+        print(f" Iniciando treino de {EPISODIOS} episódios...")
         print("   (Esta operação pode demorar alguns minutos)")
         
         # TREINO RÁPIDO (com progresso a cada 500 episódios)
@@ -529,7 +529,7 @@ def treinar_todos_agentes_automaticamente():
         taxa_sucesso_final = sum(historico['sucesso']) / len(historico['sucesso']) * 100
         recompensa_maxima = max(historico['recompensa'])
         
-        print(f"\n✅ Treino do Farol concluído!")
+        print(f"\n Treino do Farol concluído!")
         print(f"   Tempo total: {tempo_final/60:.1f} minutos")
         print(f"   Taxa de sucesso final: {taxa_sucesso_final:.1f}%")
         print(f"   Melhor recompensa: {recompensa_maxima:.1f}")
@@ -538,13 +538,13 @@ def treinar_todos_agentes_automaticamente():
         # Salvar agente automaticamente
         nome_arquivo = 'agentes_salvos/melhor_farol_10K.pkl'
         agente.salvar_agente(nome_arquivo)
-        print(f"   ✅ Agente salvo em: {nome_arquivo}")
+        print(f"    Agente salvo em: {nome_arquivo}")
         
         # Salvar histórico em CSV
         df = pd.DataFrame(historico)
         nome_csv = f'resultados/farol_10K_{int(time.time())}.csv'
         df.to_csv(nome_csv, index=False)
-        print(f"   📊 Dados salvos em: {nome_csv}")
+        print(f"    Dados salvos em: {nome_csv}")
         
         resultados['farol'] = {
             'historico': historico,
@@ -554,7 +554,7 @@ def treinar_todos_agentes_automaticamente():
         }
         
     except Exception as e:
-        print(f"❌ Erro no treino do Farol: {e}")
+        print(f" Erro no treino do Farol: {e}")
         import traceback
         traceback.print_exc()
     
@@ -562,25 +562,25 @@ def treinar_todos_agentes_automaticamente():
     tempo_total = time.time() - tempo_inicio_total
     
     print("\n" + "="*60)
-    print("✅ TREINO COMPLETO CONCLUÍDO!")
+    print(" TREINO COMPLETO CONCLUÍDO!")
     print("="*60)
     print(f"Tempo total: {tempo_total/60:.1f} minutos")
     
     if 'labirinto' in resultados:
         lab = resultados['labirinto']
-        print(f"\n📊 RESULTADOS LABIRINTO 10x10:")
+        print(f"\n RESULTADOS LABIRINTO 10x10:")
         print(f"   Taxa de sucesso: {sum(lab['historico']['sucesso'])/len(lab['historico']['sucesso'])*100:.1f}%")
         print(f"   Tempo: {lab['tempo']/60:.1f} min")
         print(f"   Agente salvo: {lab['arquivo']}")
     
     if 'farol' in resultados:
         far = resultados['farol']
-        print(f"\n📊 RESULTADOS FAROL 8x8:")
+        print(f"\n RESULTADOS FAROL 8x8:")
         print(f"   Taxa de sucesso: {sum(far['historico']['sucesso'])/len(far['historico']['sucesso'])*100:.1f}%")
         print(f"   Tempo: {far['tempo']/60:.1f} min")
         print(f"   Agente salvo: {far['arquivo']}")
     
-    print("\n⚠️  NOTA: Para usar os agentes nas demonstrações,")
+    print("\n  NOTA: Para usar os agentes nas demonstrações,")
     print("   execute o script 'setup_agentes.py' ou")
     print("   copie manualmente os arquivos .pkl:")
     print("   cp agentes_salvos/melhor_labirinto_10K.pkl agentes_salvos/melhor_labirinto.pkl")
@@ -663,8 +663,8 @@ def plotar_resultados(historico, tipo_ambiente: str):
     nome_csv = f'resultados/dados_treinamento_{tipo_ambiente}_{timestamp}.csv'
     df.to_csv(nome_csv, index=False)
     
-    print(f"\n📊 Gráfico salvo em: {nome_arquivo}")
-    print(f"📄 Dados salvos em: {nome_csv}")
+    print(f"\n Gráfico salvo em: {nome_arquivo}")
+    print(f" Dados salvos em: {nome_csv}")
     
     # Mostrar gráfico com tratamento de erro
     try:
@@ -703,7 +703,7 @@ def teste_final(agente_treinado, tipo_ambiente: str):
     agente_treinado.reiniciar()
     agente_treinado.posicao = (0, 0)
     
-    print(f"🧭 Executando teste com política gananciosa...")
+    print(f" Executando teste com política gananciosa...")
     
     # Executar teste
     trajetoria = [(0, 0)]
@@ -732,21 +732,21 @@ def teste_final(agente_treinado, tipo_ambiente: str):
         # Verificar se chegou ao objetivo
         if resultado.get('terminou', False) or resultado.get('episodio_completo', False):
             objetivo = "saída" if tipo_ambiente == 'labirinto' else "farol"
-            print(f"  ✅ Agente encontrou a {objetivo} em {passo+1} passos!")
-            print(f"  📍 Últimas posições: {trajetoria[-5:] if len(trajetoria) > 5 else trajetoria}")
-            print(f"  💰 Recompensa total: {recompensa_total:.1f}")
+            print(f"   Agente encontrou a {objetivo} em {passo+1} passos!")
+            print(f"   Últimas posições: {trajetoria[-5:] if len(trajetoria) > 5 else trajetoria}")
+            print(f"   Recompensa total: {recompensa_total:.1f}")
             sucesso = True
             break
         
         if passo == MAX_PASSOS - 1:
-            print(f"  ⚠️  Teste terminou sem encontrar objetivo após {MAX_PASSOS} passos.")
-            print(f"  📍 Últimas posições: {trajetoria[-5:] if len(trajetoria) > 5 else trajetoria}")
-            print(f"  💰 Recompensa total: {recompensa_total:.1f}")
+            print(f"    Teste terminou sem encontrar objetivo após {MAX_PASSOS} passos.")
+            print(f"   Últimas posições: {trajetoria[-5:] if len(trajetoria) > 5 else trajetoria}")
+            print(f"   Recompensa total: {recompensa_total:.1f}")
             sucesso = False
     
     # Mostrar estatísticas do agente
     stats = agente_treinado.obter_estatisticas_aprendizagem()
-    print(f"\n📈 Estatísticas do Agente:")
+    print(f"\n Estatísticas do Agente:")
     print(f"   Estados aprendidos: {stats['estados_aprendidos']}")
     print(f"   Explorações totais: {stats['exploracoes_total']}")
     print(f"   Episódios treinados: {agente_treinado.episodios_treinados}")
@@ -789,7 +789,7 @@ def comparar_agentes():
     resultados = {'RL': [], 'Fixo': []}
     
     for i, (nome, agente) in enumerate([('RL', agente_rl), ('Fixo', agente_fixo)]):
-        print(f"\n🧪 Testando {nome}...")
+        print(f"\n Testando {nome}...")
         
         for episodio in range(EPISODIOS_COMPARACAO):
             # Resetar
@@ -866,7 +866,7 @@ def comparar_agentes():
     os.makedirs('resultados', exist_ok=True)
     plt.savefig('resultados/comparacao_agentes_10x10.png', dpi=300, bbox_inches='tight')
     
-    print(f"\n📊 Gráfico de comparação salvo em: resultados/comparacao_agentes_10x10.png")
+    print(f"\n Gráfico de comparação salvo em: resultados/comparacao_agentes_10x10.png")
     
     try:
         plt.show(block=False)
@@ -895,7 +895,7 @@ def carregar_agente_treinado(tipo_ambiente: str):
             break
     
     if nome_arquivo is None:
-        print(f"❌ Nenhum agente treinado encontrado para {tipo_ambiente}.")
+        print(f" Nenhum agente treinado encontrado para {tipo_ambiente}.")
         print(f"   Execute primeiro o treino (opção 1, 2 ou 8).")
         return None
     
@@ -914,7 +914,7 @@ def carregar_agente_treinado(tipo_ambiente: str):
         # Carregar dados
         agente.carregar_agente(nome_arquivo)
         
-        print(f"✅ Agente carregado com sucesso!")
+        print(f" Agente carregado com sucesso!")
         print(f"   Arquivo: {nome_arquivo}")
         print(f"   Estados aprendidos: {len(agente.q_tabela)}")
         print(f"   Episódios treinados: {agente.episodios_treinados}")
@@ -923,7 +923,7 @@ def carregar_agente_treinado(tipo_ambiente: str):
         return agente
         
     except Exception as e:
-        print(f"❌ Erro ao carregar agente: {e}")
+        print(f" Erro ao carregar agente: {e}")
         return None
 
 def menu_principal():
@@ -956,14 +956,14 @@ def menu_principal():
                 historico, agente = treinar_agente_labirinto()
                 
                 # Perguntar se quer salvar
-                salvar = input("\n💾 Deseja salvar o agente treinado? (s/n): ").strip().lower()
+                salvar = input("\n Deseja salvar o agente treinado? (s/n): ").strip().lower()
                 if salvar == 's':
                     os.makedirs('agentes_salvos', exist_ok=True)
                     agente.salvar_agente('agentes_salvos/melhor_labirinto.pkl')
-                    print("✅ Agente salvo em 'agentes_salvos/melhor_labirinto.pkl'")
+                    print(" Agente salvo em 'agentes_salvos/melhor_labirinto.pkl'")
                 
                 # Plotar resultados
-                plotar = input("\n📊 Deseja ver os gráficos de aprendizagem? (s/n): ").strip().lower()
+                plotar = input("\n Deseja ver os gráficos de aprendizagem? (s/n): ").strip().lower()
                 if plotar == 's':
                     df = plotar_resultados(historico, 'labirinto')
                     print("\nPressione Enter para continuar...")
@@ -974,14 +974,14 @@ def menu_principal():
                 historico, agente = treinar_agente_farol()
                 
                 # Perguntar se quer salvar
-                salvar = input("\n💾 Deseja salvar o agente treinado? (s/n): ").strip().lower()
+                salvar = input("\n Deseja salvar o agente treinado? (s/n): ").strip().lower()
                 if salvar == 's':
                     os.makedirs('agentes_salvos', exist_ok=True)
                     agente.salvar_agente('agentes_salvos/melhor_farol.pkl')
-                    print("✅ Agente salvo em 'agentes_salvos/melhor_farol.pkl'")
+                    print(" Agente salvo em 'agentes_salvos/melhor_farol.pkl'")
                 
                 # Plotar resultados
-                plotar = input("\n📊 Deseja ver os gráficos de aprendizagem? (s/n): ").strip().lower()
+                plotar = input("\n Deseja ver os gráficos de aprendizagem? (s/n): ").strip().lower()
                 if plotar == 's':
                     df = plotar_resultados(historico, 'farol')
                     print("\nPressione Enter para continuar...")
@@ -991,7 +991,7 @@ def menu_principal():
                 # Carregar e testar labirinto 10x10
                 agente = carregar_agente_treinado('labirinto')
                 if agente:
-                    teste = input("\n🧪 Deseja testar o agente? (s/n): ").strip().lower()
+                    teste = input("\n Deseja testar o agente? (s/n): ").strip().lower()
                     if teste == 's':
                         teste_final(agente, 'labirinto')
                         print("\nPressione Enter para continuar...")
@@ -1001,7 +1001,7 @@ def menu_principal():
                 # Carregar e testar farol 8x8
                 agente = carregar_agente_treinado('farol')
                 if agente:
-                    teste = input("\n🧪 Deseja testar o agente? (s/n): ").strip().lower()
+                    teste = input("\n Deseja testar o agente? (s/n): ").strip().lower()
                     if teste == 's':
                         teste_final(agente, 'farol')
                         print("\nPressione Enter para continuar...")
@@ -1018,7 +1018,7 @@ def menu_principal():
                     from analise_resultados import menu_analise_resultados
                     menu_analise_resultados()
                 except ImportError as e:
-                    print(f"❌ Erro ao importar módulo de análise: {e}")
+                    print(f" Erro ao importar módulo de análise: {e}")
                     print("   Certifique-se que o arquivo 'analise_resultados.py' está no diretório.")
                     input("\nPressione Enter para continuar...")
                 
@@ -1028,7 +1028,7 @@ def menu_principal():
                     from visualizacao_tempo_real import menu_demonstracoes
                     menu_demonstracoes()
                 except ImportError as e:
-                    print(f"❌ Erro ao importar módulo de visualização: {e}")
+                    print(f" Erro ao importar módulo de visualização: {e}")
                     print("   Certifique-se que o arquivo 'visualizacao_tempo_real.py' está no diretório.")
                     input("\nPressione Enter para continuar...")
                 
@@ -1038,7 +1038,7 @@ def menu_principal():
                 
                 # Perguntar se quer criar gráficos
                 if resultados:
-                    plotar = input("\n📊 Deseja gerar gráficos dos resultados? (s/n): ").strip().lower()
+                    plotar = input("\n Deseja gerar gráficos dos resultados? (s/n): ").strip().lower()
                     if plotar == 's':
                         for tipo, dados in resultados.items():
                             if 'historico' in dados:
@@ -1050,22 +1050,22 @@ def menu_principal():
                 input()
                 
             elif opcao == '9':
-                print("\n👋 Encerrando programa...")
+                print("\n Encerrando programa...")
                 print("Obrigado por usar o Simulador SMA!")
                 break
             
             else:
-                print("❌ Opção inválida. Tente novamente.")
+                print(" Opção inválida. Tente novamente.")
                 
         except KeyboardInterrupt:
-            print("\n\n⚠️  Operação interrompida pelo utilizador.")
+            print("\n\n  Operação interrompida pelo utilizador.")
             continuar = input("Deseja sair do programa? (s/n): ").strip().lower()
             if continuar == 's':
-                print("👋 Encerrando programa...")
+                print(" Encerrando programa...")
                 break
         
         except Exception as e:
-            print(f"\n❌ Erro: {e}")
+            print(f"\n Erro: {e}")
             import traceback
             traceback.print_exc()
             input("\nPressione Enter para continuar...")

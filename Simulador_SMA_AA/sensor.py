@@ -2,7 +2,7 @@
 """
 Módulo que define os sensores para os agentes.
 Autores: Emanuel Fernandes (105084), Andreia Fonseca (111298)
-Data: Dezembro 2024
+Data: Janeiro 2026
 """
 
 from typing import Dict, Any, Tuple, List

@@ -282,25 +282,25 @@ def demonstrar_labirinto_agente_fixo():
             
             # Verificar sucesso
             if resultado.get('terminou', False):
-                print(f"\n  ✅ AGENTE ENCONTROU A SAÍDA!")
-                print(f"  🎯 Conclusão em {passo+1} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
-                print(f"  📍 Trajetória finalizada com sucesso")
+                print(f"\n   AGENTE ENCONTROU A SAÍDA!")
+                print(f"   Conclusão em {passo+1} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
+                print(f"   Trajetória finalizada com sucesso")
                 vis.pausar(3)  # Pausa para ver a posição final
                 break
             
             if passo == max_passos - 1:
-                print(f"\n  ⚠️  LIMITE DE PASSOS ATINGIDO")
-                print(f"  🔄 Não encontrou saída em {max_passos} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
+                print(f"\n    LIMITE DE PASSOS ATINGIDO")
+                print(f"   Não encontrou saída em {max_passos} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
                 pos_final = ambiente.posicoes_agentes['Agente_Fixo']
                 distancia = abs(pos_final[0] - ambiente.saida[0]) + abs(pos_final[1] - ambiente.saida[1])
-                print(f"  📍 Posição final: {pos_final}")
-                print(f"  📏 Distância à saída: {distancia}")
+                print(f"   Posição final: {pos_final}")
+                print(f"   Distância à saída: {distancia}")
                 vis.pausar(3)
     
     except KeyboardInterrupt:
-        print("\n\n⚠️  Demonstração interrompida pelo utilizador")
+        print("\n\n  Demonstração interrompida pelo utilizador")
     
     print("\nPressione Enter para continuar...")
     input()
@@ -331,7 +331,7 @@ def demonstrar_farol_agente_fixo():
     # Posicionar agente
     ambiente.posicoes_agentes = {'Agente_Fixo': (0, 0)}
     
-    print("🔦 Agente Fixo iniciando no problema do Farol...")
+    print("   Agente Fixo iniciando no problema do Farol...")
     print("   Estratégia: Seguir direção do farol")
     print(f"   Farol na posição: {ambiente.farol}")
     print(f"   Obstáculos: {len(ambiente.obstaculos)}")
@@ -368,24 +368,24 @@ def demonstrar_farol_agente_fixo():
             
             # Verificar sucesso
             if resultado.get('terminou', False):
-                print(f"\n  ✅ AGENTE ALCANÇOU O FAROL!")
-                print(f"  🎯 Conclusão em {passo+1} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
+                print(f"\n   AGENTE ALCANÇOU O FAROL!")
+                print(f"   Conclusão em {passo+1} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
                 vis.pausar(3)
                 break
             
             if passo == max_passos - 1:
                 pos_final = ambiente.posicoes_agentes['Agente_Fixo']
                 distancia = abs(pos_final[0] - ambiente.farol[0]) + abs(pos_final[1] - ambiente.farol[1])
-                print(f"\n  ⚠️  LIMITE DE PASSOS ATINGIDO")
-                print(f"  🔄 Não alcançou farol em {max_passos} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
-                print(f"  📍 Posição final: {pos_final}")
-                print(f"  📏 Distância ao farol: {distancia}")
+                print(f"\n    LIMITE DE PASSOS ATINGIDO")
+                print(f"   Não alcançou farol em {max_passos} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
+                print(f"   Posição final: {pos_final}")
+                print(f"   Distância ao farol: {distancia}")
                 vis.pausar(3)
     
     except KeyboardInterrupt:
-        print("\n\n⚠️  Demonstração interrompida pelo utilizador")
+        print("\n\n  Demonstração interrompida pelo utilizador")
     
     print("\nPressione Enter para continuar...")
     input()
@@ -408,14 +408,14 @@ def demonstrar_labirinto_agente_treinado_arquivo(arquivo_agente):
         
         # Verificar se carregou corretamente
         if len(agente.q_tabela) == 0:
-            print("⚠️  Agente carregado mas sem aprendizagem (Q-table vazia)")
+            print("  Agente carregado mas sem aprendizagem (Q-table vazia)")
     except:
-        print("❌ Erro ao carregar agente. Tentando método alternativo...")
+        print(" Erro ao carregar agente. Tentando método alternativo...")
         try:
             with open(arquivo_agente, 'rb') as f:
                 agente = pickle.load(f)
         except Exception as e:
-            print(f"❌ Erro crítico ao carregar agente: {e}")
+            print(f" Erro crítico ao carregar agente: {e}")
             return
     
     # Criar ambiente 10x10
@@ -435,7 +435,7 @@ def demonstrar_labirinto_agente_treinado_arquivo(arquivo_agente):
     # Posicionar agente
     ambiente.posicoes_agentes = {'Agente_RL': (0, 0)}
     
-    print("🧠 Agente RL Treinado iniciando no labirinto 10x10...")
+    print(" Agente RL Treinado iniciando no labirinto 10x10...")
     print("   Modo: Política gananciosa (epsilon=0)")
     print(f"   Estados aprendidos: {len(agente.q_tabela) if hasattr(agente, 'q_tabela') else 'N/A'}")
     print(f"   Episódios treinados: {agente.episodios_treinados if hasattr(agente, 'episódios_treinados') else 'N/A'}")
@@ -478,26 +478,26 @@ def demonstrar_labirinto_agente_treinado_arquivo(arquivo_agente):
             
             # Verificar sucesso
             if resultado.get('terminou', False):
-                print(f"\n  ✅ AGENTE ENCONTROU A SAÍDA!")
-                print(f"  🎯 Conclusão em {passo+1} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
-                print(f"  📍 Caminho eficiente aprendido!")
+                print(f"\n   AGENTE ENCONTROU A SAÍDA!")
+                print(f"   Conclusão em {passo+1} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
+                print(f"   Caminho eficiente aprendido!")
                 if len(trajetoria) <= 20:  # Mostrar trajetória se não for muito longa
-                    print(f"  🗺️  Trajetória: {trajetoria}")
+                    print(f" Trajetória: {trajetoria}")
                 vis.pausar(3)
                 break
             
             if passo == max_passos - 1:
-                print(f"\n  ⚠️  LIMITE DE PASSOS ATINGIDO")
-                print(f"  🔄 Não encontrou saída em {max_passos} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
-                print(f"  📍 Última posição: {ambiente.posicoes_agentes['Agente_RL']}")
+                print(f"\n    LIMITE DE PASSOS ATINGIDO")
+                print(f"   Não encontrou saída em {max_passos} passos")
+                print(f"  Recompensa total: {recompensa_total:.1f}")
+                print(f"   Última posição: {ambiente.posicoes_agentes['Agente_RL']}")
                 if len(trajetoria) > 1:
                     print(f"  🗺️  Últimos 5 passos: {trajetoria[-5:]}")
                 vis.pausar(3)
     
     except KeyboardInterrupt:
-        print("\n\n⚠️  Demonstração interrompida pelo utilizador")
+        print("\n\n  Demonstração interrompida pelo utilizador")
     
     print("\nPressione Enter para continuar...")
     input()
@@ -524,7 +524,7 @@ def demonstrar_labirinto_agente_treinado():
             break
     
     if arquivo_agente is None:
-        print("❌ Nenhum agente treinado encontrado.")
+        print(" Nenhum agente treinado encontrado.")
         print("   Execute primeiro o treino (opção 1 ou 8 no menu principal).")
         return
     
@@ -547,14 +547,14 @@ def demonstrar_farol_agente_treinado_arquivo(arquivo_agente):
         
         # Verificar se carregou corretamente
         if len(agente.q_tabela) == 0:
-            print("⚠️  Agente carregado mas sem aprendizagem (Q-table vazia)")
+            print("  Agente carregado mas sem aprendizagem (Q-table vazia)")
     except:
-        print("❌ Erro ao carregar agente. Tentando método alternativo...")
+        print(" Erro ao carregar agente. Tentando método alternativo...")
         try:
             with open(arquivo_agente, 'rb') as f:
                 agente = pickle.load(f)
         except Exception as e:
-            print(f"❌ Erro crítico ao carregar agente: {e}")
+            print(f" Erro crítico ao carregar agente: {e}")
             return
     
     # Criar ambiente
@@ -574,7 +574,7 @@ def demonstrar_farol_agente_treinado_arquivo(arquivo_agente):
     # Posicionar agente
     ambiente.posicoes_agentes = {'Agente_RL': (0, 0)}
     
-    print("🧠 Agente RL Treinado iniciando no problema do Farol...")
+    print(" Agente RL Treinado iniciando no problema do Farol...")
     print("   Modo: Política gananciosa (epsilon=0)")
     print(f"   Estados aprendidos: {len(agente.q_tabela) if hasattr(agente, 'q_tabela') else 'N/A'}")
     print(f"   Episódios treinados: {agente.episodios_treinados if hasattr(agente, 'episodios_treinados') else 'N/A'}")
@@ -618,25 +618,25 @@ def demonstrar_farol_agente_treinado_arquivo(arquivo_agente):
             
             # Verificar sucesso
             if resultado.get('terminou', False):
-                print(f"\n  ✅ AGENTE ALCANÇOU O FAROL!")
-                print(f"  🎯 Conclusão em {passo+1} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
-                print(f"  📉 Melhoria na distância: {distancias[0]} → 0")
+                print(f"\n   AGENTE ALCANÇOU O FAROL!")
+                print(f"   Conclusão em {passo+1} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
+                print(f"   Melhoria na distância: {distancias[0]} → 0")
                 vis.pausar(3)
                 break
             
             if passo == max_passos - 1:
-                print(f"\n  ⚠️  LIMITE DE PASSOS ATINGIDO")
-                print(f"  🔄 Não alcançou farol em {max_passos} passos")
-                print(f"  💰 Recompensa total: {recompensa_total:.1f}")
-                print(f"  📍 Posição final: {pos_atual}")
-                print(f"  📏 Distância final ao farol: {distancia}")
+                print(f"\n    LIMITE DE PASSOS ATINGIDO")
+                print(f"   Não alcançou farol em {max_passos} passos")
+                print(f"   Recompensa total: {recompensa_total:.1f}")
+                print(f"   Posição final: {pos_atual}")
+                print(f"   Distância final ao farol: {distancia}")
                 if len(distancias) > 1:
-                    print(f"  📉 Melhoria: {distancias[0]} → {distancia}")
+                    print(f"   Melhoria: {distancias[0]} → {distancia}")
                 vis.pausar(3)
     
     except KeyboardInterrupt:
-        print("\n\n⚠️  Demonstração interrompida pelo utilizador")
+        print("\n\n  Demonstração interrompida pelo utilizador")
     
     print("\nPressione Enter para continuar...")
     input()
@@ -663,7 +663,7 @@ def demonstrar_farol_agente_treinado():
             break
     
     if arquivo_agente is None:
-        print("❌ Nenhun agente treinado encontrado.")
+        print(" Nenhun agente treinado encontrado.")
         print("   Execute primeiro o treino (opção 2 ou 8 no menu principal).")
         return
     
@@ -701,13 +701,13 @@ def menu_demonstracoes():
                 print("\nVoltando ao menu principal...")
                 break
             else:
-                print("\n❌ Opção inválida. Escolha 1-5.")
+                print("\n Opção inválida. Escolha 1-5.")
                 
         except KeyboardInterrupt:
-            print("\n\n⚠️  Demonstração interrompida pelo utilizador.")
+            print("\n\n  Demonstração interrompida pelo utilizador.")
             break
         except Exception as e:
-            print(f"\n❌ Erro durante a demonstração: {e}")
+            print(f"\n Erro durante a demonstração: {e}")
             import traceback
             traceback.print_exc()
             print("\nPressione Enter para continuar...")
