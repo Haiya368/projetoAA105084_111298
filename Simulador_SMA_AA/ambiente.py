@@ -2,7 +2,7 @@
 """
 Módulo que define os ambientes de simulação para o problema do Farol e do Labirinto.
 Autores: Emanuel Fernandes (105084), Andreia Fonseca (111298)
-Data: Dezembro 2024
+Data: janeir0 2026
 """
 
 import numpy as np
